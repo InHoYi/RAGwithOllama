@@ -3,6 +3,8 @@ from langchain_ollama import OllamaLLM
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain.document_loaders import TextLoader
+from datetime import datetime
+
 
 model = OllamaLLM(model="exaone3.5:latest")
 
@@ -11,7 +13,7 @@ def loadDocument(dir):
     documents = loader.load()
     return documents
 
-document = loadDocument('article/article1.txt')
+document = loadDocument(f'article/article{datetime.today().strftime("%Y%m%d")}.txt')
 
 template = ChatPromptTemplate.from_template("""
     질문에 대해서 context 부분을 읽고 답변을 한국어로 작성해줘.
