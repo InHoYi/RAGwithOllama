@@ -5,7 +5,6 @@ from langchain_core.output_parsers import StrOutputParser
 
 model = OllamaLLM(model="exaone3.5:latest")
 
-
 loader = WebBaseLoader('원하는 URL')
 docs = loader.load()
 
